@@ -1,103 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-  <title>E-commerce Product Page</title>
 
-  <!-- Fonte e Tailwind via CDN -->
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Kumbh Sans"', 'sans-serif'],
-          },
-          colors: {
-            orange: 'hsl(26,100%,55%)',
-            'pale-orange': 'hsl(25,100%,94%)',
-            'very-dark-blue': 'hsl(220,13%,13%)',
-            'dark-grayish-blue': 'hsl(219,9%,45%)',
-            'grayish-blue': 'hsl(220,14%,75%)',
-            'light-grayish-blue': 'hsl(223,64%,98%)',
-          }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommecer</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+            --color-laranja: hsl(26, 100%, 55%);
+            --color-Pale-laranja-claro: hsl(25, 100%, 94%);
+            --color-cinza-escuro: hsl(220, 13%, 13%);
+            --color-cinza-medio: hsl(219, 9%, 45%);
+            --color-cinza-claro: hsl(220, 14%, 75%);
+            --color-claro: hsl(223, 64%, 98%);
         }
-      }
-    }
-  </script>
+    </style>
 </head>
-<body class="bg-light-grayish-blue font-sans text-dark-grayish-blue">
+
+<body class="bg-white">
 
   <div class="container mx-auto max-w-screen-lg px-4 py-8">
 
-    <!-- controle sidebar mobile -->
-    <input type="checkbox" id="nav-toggle" class="hidden peer"/>
+    <header class="flex items-center relative">
 
-    <!-- HEADER -->
-    <header class="flex items-center justify-between py-6 border-b border-grayish-blue relative">
-      <!-- botão mobile -->
-      <label for="nav-toggle" class="md:hidden flex items-center">
-        <svg class="h-6 w-6 text-dark-grayish-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
+      <input type="checkbox" id="nav-toggle" class="hidden peer">
+
+      <label for="nav-toggle" class="md:hidden flex items-center z-20 p-2">
+        <img src="images/icon-menu.svg" alt="Abrir menu" class="h-6 w-6 object-contain">
       </label>
 
-      <!-- logo -->
-      <img src="images/logo.svg" class="h-6" alt="Sneakers Logo"/>
 
-      <!-- nav desktop -->
-      <nav class="hidden md:flex space-x-8 text-grayish-blue">
-        <a href="#" class="group relative text-base font-medium hover:text-very-dark-blue">
+
+      <img src="images/logo.svg" class="h-6 mr-8 alt=" Sneakers Logo" />
+
+      <nav class="flex text-cinza-claro gap-8">
+        <a href="#" class="group relative text-base font-medium hover:text-laranja">
           Collections
-          <span class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+          <span
+            class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
         </a>
-        <a href="#" class="group relative text-base font-medium hover:text-very-dark-blue">
+        <a href="#" class="group relative text-base font-medium hover:text-laranja">
           Men
-          <span class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+          <span
+            class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
         </a>
-        <a href="#" class="group relative text-base font-medium hover:text-very-dark-blue">
+        <a href="#" class="group relative text-base font-medium hover:text-laranja">
           Women
-          <span class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+          <span
+            class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
         </a>
-        <a href="#" class="group relative text-base font-medium hover:text-very-dark-blue">
+        <a href="#" class="group relative text-base font-medium hover:text-laranja">
           About
-          <span class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+          <span
+            class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
         </a>
-        <a href="#" class="group relative text-base font-medium hover:text-very-dark-blue">
+        <a href="#" class="group relative text-base font-medium hover:text-laranja">
           Contact
-          <span class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+          <span
+            class="absolute left-0 -bottom-1 w-full h-1 bg-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
         </a>
       </nav>
 
-      <!-- carrinho & avatar -->
-      <div class="flex items-center space-x-6">
-        <div class="relative">
-          <img src="images/icon-cart.svg" class="h-6 cursor-pointer" alt="Cart Icon"/>
-          <div class="absolute -top-2 -right-2 bg-orange text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</div>
+      <div class="flex space-x-8 ml-auto gap-[30px]">
+        <div class="relative mt-2 mr-0">
+          <img src="images/icon-cart.svg" class="h-6 cursor-pointer" alt="Cart Icon">
+          <div
+            class="absolute -top-2 -right-2 bg-laranja text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+            0
+          </div>
         </div>
-        <img src="images/image-avatar.png" class="h-10 w-10 rounded-full" alt="Avatar"/>
+        <img src="images/image-avatar.png" class="h-10 w-10 rounded-full" alt="Avatar">
       </div>
     </header>
 
-    <!-- overlay mobile -->
-    <label for="nav-toggle"
-           class="fixed inset-0 bg-black bg-opacity-50 hidden peer-checked:block md:hidden z-10"></label>
+    <div>
+      <hr class="border-cinza-claro my-6">
+    </div>
 
-    <!-- SIDEBAR MOBILE -->
+
+    <label for="nav-toggle"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden peer-checked:block md:hidden z-10"></label>
+
     <aside
       class="fixed top-0 left-0 z-20 w-64 h-full bg-white transform -translate-x-full peer-checked:translate-x-0 transition-transform duration-300 md:hidden">
+
       <div class="p-6 flex justify-end">
-        <label for="nav-toggle" class="cursor-pointer">
-          <svg class="h-4 w-4 text-dark-grayish-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"/>
-          </svg>
+        <label for="nav-toggle" class="md:hidden flex items-center z-20 p-2">
+          <img src="images/icon-close.png" alt="Fechar menu" class="h-4 w-4 sm:h-6 sm:w-6 object-contain">
         </label>
       </div>
+
       <nav class="flex flex-col space-y-6 px-6">
         <a href="#" class="text-lg hover:text-very-dark-blue">Collections</a>
         <a href="#" class="text-lg hover:text-very-dark-blue">Men</a>
@@ -107,63 +100,56 @@
       </nav>
     </aside>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+
     <section class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20 my-16">
-      <!-- LADO ESQUERDO -->
       <div class="flex flex-col items-center md:items-start space-y-6">
-        <!-- imagem principal -->
-        <img src="images/image-product-1.jpg"
-             class="w-full max-w-md rounded-xl shadow-lg object-cover"
-             alt="Fall Limited Edition Sneakers"/>
-        <!-- thumbnails -->
-        <div class="flex space-x-4">
-          <img src="images/image-product-1-thumbnail.jpg"
-               class="w-16 rounded-lg cursor-pointer border-2 border-orange hover:opacity-50"
-               alt="Thumb 1"/>
-          <img src="images/image-product-2-thumbnail.jpg"
-               class="w-16 rounded-lg cursor-pointer border-2 border-transparent hover:border-orange hover:opacity-50"
-               alt="Thumb 2"/>
-          <img src="images/image-product-3-thumbnail.jpg"
-               class="w-16 rounded-lg cursor-pointer border-2 border-transparent hover:border-orange hover:opacity-50"
-               alt="Thumb 3"/>
-          <img src="images/image-product-4-thumbnail.jpg"
-               class="w-16 rounded-lg cursor-pointer border-2 border-transparent hover:border-orange hover:opacity-50"
-               alt="Thumb 4"/>
-               <img src="images/image-product-2-thumbnail.jpg"
-               class="w-16 rounded-lg cursor-pointer border-2 border-transparent hover:border-orange hover:opacity-50"
-               alt="Thumb 2"/>
-               <img src="images/image-product-1-thumbnail.jpg"
-               class="w-16 rounded-lg cursor-pointer border-2 border-orange hover:opacity-50"
-               alt="Thumb 1"/>
+
+        <img src="images/image-product-1.jpg" class="w-[400px] ml-15 max-w-md rounded-xl shadow-lg object-cover" alt="">
+
+        <div class="flex space-x-4  ml-15 gap-[30px]">
+          <img src="images/image-product-1-thumbnail.jpg" class="w-16 rounded-lg border-2 border-transparent cursor-pointer
+           hover:border-laranja hover:opacity-50
+           transition-colors transition-opacity duration-200 ease-in-out" alt="Thumb 1">
+
+          <img src="images/image-product-2-thumbnail.jpg" class="w-16 rounded-lg border-2 border-transparent cursor-pointer
+           hover:border-orange-500 hover:opacity-50
+           transition-colors transition-opacity duration-200 ease-in-out" alt="Thumb 2">
+
+          <img src="images/image-product-3-thumbnail.jpg" class="w-16 rounded-lg border-2 border-transparent cursor-pointer
+           hover:border-orange-500 hover:opacity-50
+           transition-colors transition-opacity duration-200 ease-in-out" alt="Thumb 3">
+
+          <img src="images/image-product-4-thumbnail.jpg" class="w-16 rounded-lg border-2 border-transparent cursor-pointer
+           hover:border-orange-500 hover:opacity-50
+           transition-colors transition-opacity duration-200 ease-in-out" alt="Thumb 4">
         </div>
       </div>
 
-      <!-- LADO DIREITO -->
       <div class="flex-1 space-y-6 px-4 md:px-0">
         <p class="text-sm uppercase tracking-widest text-dark-grayish-blue">Sneaker Company</p>
         <h1 class="text-4xl font-bold text-very-dark-blue leading-tight">
-          Fall Limited Edition<br/>Sneakers
+          Fall Limited Edition<br />Sneakers
         </h1>
         <p class="text-base text-grayish-blue">
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
         </p>
 
-        <!-- preços -->
+
         <div class="flex items-center space-x-4">
           <span class="text-2xl font-bold text-very-dark-blue">$125.00</span>
           <span class="bg-pale-orange text-orange font-bold px-3 py-1 rounded">50%</span>
         </div>
         <p class="text-sm text-grayish-blue line-through">$250.00</p>
 
-        <!-- contador + botão -->
         <div class="flex flex-col sm:flex-row items-center sm:items-stretch w-full sm:w-auto gap-4">
           <div class="flex items-center justify-between w-full sm:w-40 h-12 bg-pale-orange rounded-lg px-4">
             <button class="text-orange font-bold text-lg leading-none">−</button>
             <span class="font-bold text-very-dark-blue">0</span>
             <button class="text-orange font-bold text-lg leading-none">+</button>
           </div>
-          <button class="flex items-center justify-center w-full sm:w-auto bg-orange text-white h-12 rounded-lg font-medium space-x-2 hover:bg-opacity-90 transition">
+          <button
+            class="flex items-center justify-center w-full sm:w-auto bg-orange text-white h-12 rounded-lg font-medium space-x-2 hover:bg-opacity-90 transition">
             <span>Add to cart</span>
           </button>
         </div>
@@ -172,4 +158,5 @@
 
   </div>
 </body>
+
 </html>
