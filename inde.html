@@ -5,28 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ecommecer</title>
-   <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style type="text/tailwindcss">
-    @theme {
-            --color-laranja: hsl(26, 100%, 55%);
-            --color-Pale-laranja-claro: hsl(25, 100%, 94%);
-            --color-cinza-escuro: hsl(220, 13%, 13%);
-            --color-cinza-medio: hsl(219, 9%, 45%);
-            --color-cinza-claro: hsl(220, 14%, 75%);
-            --color-claro: hsl(223, 64%, 98%);
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'laranja': 'hsl(26, 100%, 55%)',
+            'pale-laranja-claro': 'hsl(25, 100%, 94%)',
+            'cinza-escuro': 'hsl(220, 13%, 13%)',
+            'cinza-medio': 'hsl(219, 9%, 45%)',
+            'cinza-claro': 'hsl(220, 14%, 75%)',
+            'claro': 'hsl(223, 64%, 98%)',
+          }
         }
-    </style>
+      }
+    }
+  </script>
+
 </head>
 
 <body class="bg-white">
   <div class="container mx-auto max-w-screen-lg px-4 py-8">
+    <input type="checkbox" id="nav-toggle" class="hidden peer">
+    <label for="nav-toggle" class="fixed inset-0 bg-black bg-opacity-50 hidden peer-checked:block md:hidden z-10">
+    </label>
     <!-- HEADER DESTOP -->
     <header class="hidden md:flex items-center justify-between">
 
@@ -72,51 +80,50 @@
       </div>
 
       <div class="flex items-center space-x-8">
-
         <div class="relative">
           <img src="images/icon-cart.svg" class="h-6 cursor-pointer" alt="">
-
           <div
             class="absolute -top-2 -right-2 bg-laranja text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
             0
           </div>
-
         </div>
-        <img src="images/image-avatar.png" class="h-10 w-10 rounded-full" alt=""">
+        <img src="images/image-avatar.png" class="h-10 w-10 rounded-full" alt="">
       </div>
     </header>
 
-     <!-- HEADER MOBILE -->
-    <header class=" flex md:hidden items-center justify-between">
-        <div class="flex items-center">
-          <input type="checkbox" id="nav-toggle" class="hidden peer" />
-          <label for="nav-toggle" class="p-2">
-            <img src="images/icon-menu.svg" class="h-6 w-6" alt="Abrir menu" />
-          </label>
-          <img src="images/logo.svg" class="h-6 ml-4" alt="Sneakers Logo" />
-        </div>
-        <div class="flex items-center space-x-4">
-          <div class="relative">
-            <img src="images/icon-cart.svg" class="h-6 cursor-pointer" alt="Cart Icon" />
-            <div
-              class="absolute -top-2 -right-2 bg-laranja text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              0
-            </div>
+    <!-- HEADER MOBILE -->
+    <header class="flex md:hidden items-center justify-between">
+      <!-- 3.1) Botão “hambúrguer” que marca/desmarca o checkbox #nav-toggle -->
+      <label for="nav-toggle" class="p-2 cursor-pointer">
+        <img src="images/icon-menu.svg" class="h-6 w-6" alt="Abrir menu" />
+      </label>
+
+      <!-- 3.2) Logo ao centro (ou à esquerda, conforme você queira) -->
+      <img src="images/logo.svg" class="h-6" alt="Logo" />
+
+      <!-- 3.3) Ícone do carrinho + avatar à direita -->
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <img src="images/icon-cart.svg" class="h-6 cursor-pointer" alt="Carrinho">
+          <div
+            class="absolute -top-2 -right-2 bg-laranja text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+            0
           </div>
-          <img src="images/image-avatar.png" class="h-8 w-8 rounded-full" alt="Avatar" />
         </div>
+        <img src="images/image-avatar.png" class="h-8 w-8 rounded-full" alt="Avatar" />
+      </div>
     </header>
 
-    <!-- OVERLAY E SIDEBAR MOBILE -->
-    <label for="nav-toggle"
-      class="fixed inset-0 bg-black bg-opacity-50 hidden peer-checked:block md:hidden z-10"></label>
-    <aside
-      class="fixed top-0 left-0 z-20 w-64 h-full bg-white transform -translate-x-full peer-checked:translate-x-0 transition-transform duration-300 md:hidden">
+    <aside class="fixed top-0 left-0 z-20 w-64 h-full bg-white
+             transform -translate-x-full peer-checked:translate-x-0
+             transition-transform duration-300 md:hidden">
+      <!-- 5.1) Botão “X” para fechar (desmarca #nav-toggle) -->
       <div class="p-6 flex justify-end">
-        <label for="nav-toggle" class="p-2">
+        <label for="nav-toggle" class="p-2 cursor-pointer">
           <img src="images/icon-close.svg" class="h-6 w-6" alt="Fechar menu" />
         </label>
       </div>
+      <!-- 5.2) Links do menu (vertical) -->
       <nav class="flex flex-col space-y-6 px-6">
         <a href="#" class="text-lg hover:text-very-dark-blue">Collections</a>
         <a href="#" class="text-lg hover:text-very-dark-blue">Men</a>
@@ -126,18 +133,20 @@
       </nav>
     </aside>
 
+
+
     <hr class="border-cinza-claro my-6" />
 
     <!-- SEÇÃO PRINCIPAL DO PRODUTO -->
     <section class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20 my-16">
 
       <div class="flex flex-col items-center md:items-start space-y-6 ml-10">
-        <!-- 1) Imagem principal, mesma largura em todos os breakpoints: 100% (mobile) e 400px (sm+) -->
+
         <img src="images/image-product-1.jpg"
           class="w-full sm:w-[400px] max-w-md rounded-xl shadow-lg object-cover cursor-pointer"
           alt="Imagem do Produto" />
 
-        <!-- 2) Contêiner das miniaturas: grid 4 colunas, mesma largura do pai -->
+
         <div class="w-full sm:w-[400px] max-w-md grid grid-cols-4 gap-4">
           <img src="images/image-product-1-thumbnail.jpg" class="w-full rounded-lg border-2 border-transparent 
              hover:border-laranja hover:opacity-50 
@@ -178,7 +187,6 @@
         <p class="text-sm text-cinza-medio line-through font-bold">$250.00</p>
 
         <div class="flex flex-col sm:flex-row items-center sm:items-stretch w-full sm:w-auto gap-4">
-
           <div class="flex items-center justify-between w-full sm:w-40 h-12 bg-claro rounded-lg px-4">
             <button class="text-laranja font-bold text-lg leading-none">−</button>
             <span class="font-bold text-cinza-escuro">0</span>
@@ -186,13 +194,11 @@
           </div>
 
           <button class="flex items-center justify-center bg-laranja text-cinza-escuro 
-               h-12 px-6 rounded-lg font-medium space-x-2 hover:bg-opacity-90 transition">
-              <i class="fas fa-shopping-cart text-cinza-escuro text-2xl"></i>
+               h-12 px-6 rounded-lg font-medium space-x-2 hover:bg-opacity-90 transition w-full sm:w-auto">
+            <i class="fas fa-shopping-cart text-cinza-escuro text-2xl"></i>
             <span class="text-md">Add to cart</span>
           </button>
-
         </div>
-      </div>
     </section>
 
   </div>
